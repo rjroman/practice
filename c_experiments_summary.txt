@@ -1,0 +1,233 @@
+
+### List of Experiments
+
+---
+
+### **Experiment 1: Calculate the Area of a Rectangle**
+
+#### **Aim**:
+To write a C program to calculate the area of a rectangle using user inputs.
+
+#### **Algorithm**:
+1. Start.
+2. Accept the length and breadth of the rectangle.
+3. Compute the area using the formula: Area = length * breadth.
+4. Display the result.
+5. Stop.
+
+#### **Program**:
+```c
+#include <stdio.h>
+int main() {
+    float length, breadth;
+    printf("Enter length and breadth: ");
+    scanf("%f %f", &length, &breadth);
+    printf("Area of rectangle: %.2f", length * breadth);
+    return 0;
+}
+```
+
+#### **Result**:
+The program calculates the area of the rectangle.
+
+#### **Output**:
+```
+Enter length and breadth: 5 10
+Area of rectangle: 50.00
+```
+
+---
+
+### **Experiment 2: Selection Sort**
+
+#### **Aim**:
+To write a C program to sort an array of integers using the selection sort technique.
+
+#### **Algorithm**:
+1. Start.
+2. Accept an array of integers.
+3. Use the selection sort algorithm to sort the array.
+4. Display the sorted array.
+5. Stop.
+
+#### **Program**:
+```c
+#include <stdio.h>
+void selectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int minIdx = i;
+        for (int j = i + 1; j < n; j++)
+            if (arr[j] < arr[minIdx])
+                minIdx = j;
+        int temp = arr[minIdx];
+        arr[minIdx] = arr[i];
+        arr[i] = temp;
+    }
+}
+
+int main() {
+    int n, arr[10];
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    printf("Enter elements: ");
+    for (int i = 0; i < n; i++) scanf("%d", &arr[i]);
+    selectionSort(arr, n);
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++) printf("%d ", arr[i]);
+    return 0;
+}
+```
+
+#### **Result**:
+The program sorts an array using selection sort.
+
+#### **Output**:
+```
+Enter number of elements: 5
+Enter elements: 9 2 5 1 7
+Sorted array: 1 2 5 7 9
+```
+
+---
+
+### **Experiment 3: Concatenate Two Strings**
+
+#### **Aim**:
+To write a C program to concatenate two strings entered by the user.
+
+#### **Algorithm**:
+1. Start.
+2. Accept two strings from the user.
+3. Concatenate them using `strcat()`.
+4. Display the resultant string.
+5. Stop.
+
+#### **Program**:
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str1[100], str2[100];
+    printf("Enter first string: ");
+    gets(str1);
+    printf("Enter second string: ");
+    gets(str2);
+    strcat(str1, str2);
+    printf("Concatenated string: %s", str1);
+    return 0;
+}
+```
+
+#### **Result**:
+The program concatenates two strings and displays the result.
+
+#### **Output**:
+```
+Enter first string: Hello
+Enter second string: World
+Concatenated string: HelloWorld
+```
+
+---
+
+### **Experiment 4: Factorial Using Recursion**
+
+#### **Aim**:
+To write a C program to find the factorial of a number using recursion.
+
+#### **Algorithm**:
+1. Start.
+2. Accept a number from the user.
+3. Compute the factorial using recursion.
+4. Display the result.
+5. Stop.
+
+#### **Program**:
+```c
+#include <stdio.h>
+
+int factorial(int n) {
+    if (n == 0) return 1;
+    return n * factorial(n - 1);
+}
+
+int main() {
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    printf("Factorial of %d is %d", n, factorial(n));
+    return 0;
+}
+```
+
+#### **Result**:
+The program computes the factorial of a number using recursion.
+
+#### **Output**:
+```
+Enter a number: 5
+Factorial of 5 is 120
+```
+
+---
+
+### **Experiment 5: Swap Two Numbers (Call by Value and Reference)**
+
+#### **Aim**:
+To write a C program to swap two numbers using both call by value and call by reference.
+
+#### **Algorithm**:
+1. Start.
+2. Accept two numbers.
+3. Swap the numbers using call by value.
+4. Swap the numbers using call by reference.
+5. Display the results.
+6. Stop.
+
+#### **Program**:
+```c
+#include <stdio.h>
+
+// Function for call by value
+void swapByValue(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+    printf("After swap by value: a = %d, b = %d\n", a, b);
+}
+
+// Function for call by reference
+void swapByReference(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x, y;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &x, &y);
+    printf("Before swap: x = %d, y = %d\n", x, y);
+    
+    // Call by value
+    swapByValue(x, y);
+    printf("After swap by reference: x = %d, y = %d\n", x, y); // No change in x and y
+    
+    // Call by reference
+    swapByReference(&x, &y);
+    printf("After swap by reference: x = %d, y = %d\n", x, y);
+    return 0;
+}
+```
+
+#### **Result**:
+The program swaps two numbers using both call by value and call by reference.
+
+#### **Output**:
+```
+Enter two numbers: 5 10
+Before swap: x = 5, y = 10
+After swap by value: a = 10, b = 5
+After swap by reference: x = 10, y = 5
+```
