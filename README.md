@@ -1,1 +1,1 @@
-# practice
+# practice and study well
